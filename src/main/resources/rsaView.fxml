@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" prefHeight="711.0" prefWidth="800" spacing="20.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RsaController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+    <children>
+        <SplitPane dividerPositions="0.5" prefHeight="687.0" prefWidth="760.0">
+            <items>
+                <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-padding: 10;">
+                    <children>
+                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="358.0" style="-fx-font-weight: 800;" text="Encryption" textAlignment="CENTER" textOverrun="CLIP">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                        <SplitPane dividerPositions="0.4" prefHeight="80.0" prefWidth="200.0">
+                            <items>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                    <children>
+                                        <Label alignment="CENTER" layoutX="41.0" layoutY="31.0" text="N" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    </children></AnchorPane>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="80.0" prefWidth="100.0">
+                                    <children>
+                                        <TextArea fx:id="txtEncN" prefHeight="200.0" prefWidth="200.0" promptText="Enter a valid N" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    </children></AnchorPane>
+                            </items>
+                        </SplitPane>
+                        <Pane prefHeight="52.0" prefWidth="356.0">
+                            <children>
+                                <Button fx:id="btnEncFindPAndQ" alignment="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onEncFindPAndQClick" prefHeight="45.0" prefWidth="356.0" text="Calculate P and Q">
+                           <effect>
+                              <Blend />
+                           </effect></Button>
+                            </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                        </Pane>
+                        <Pane prefHeight="114.0" prefWidth="356.0">
+                            <children>
+                        <Label fx:id="lblEncFindPAndQ1" layoutY="2.0" prefHeight="25.0" prefWidth="146.0" text="P =">
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding>
+                        </Label>
+                        <Label fx:id="lblEncFindPAndQ11" layoutX="1.0" layoutY="35.0" prefHeight="25.0" prefWidth="146.0" text="Q =">
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding>
+                        </Label>
+                        <TextField fx:id="txtEncQ" layoutX="147.0" layoutY="35.0" prefHeight="25.0" prefWidth="209.0">
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding></TextField>
+                        <TextField fx:id="txtEncP" layoutX="146.0" layoutY="2.0" prefHeight="25.0" prefWidth="209.0">
+                           <padding>
+                              <Insets bottom="5.0" />
+                           </padding></TextField>
+                        <Label fx:id="lblEncFindPAndQ111" layoutX="1.0" layoutY="68.0" prefHeight="25.0" prefWidth="146.0" text="Calculation time =">
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding>
+                        </Label>
+                        <Label fx:id="lblEncPQCalcTime" layoutX="147.0" layoutY="67.0" prefHeight="25.0" prefWidth="209.0">
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding>
+                        </Label>
+                            </children>
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                        </Pane>
+                        <Pane layoutX="10.0" layoutY="90.0" prefHeight="51.0" prefWidth="356.0">
+                            <children>
+                                <Button fx:id="btnEncGetNextE" alignment="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onEncFindNextE" prefHeight="40.0" prefWidth="355.0" text="Calculate random E" />
+                            </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                        </Pane>
+                        <Pane layoutX="10.0" layoutY="130.0" prefHeight="79.0" prefWidth="356.0">
+                            <children>
+                                <Label fx:id="lblEncE" layoutY="2.0" prefHeight="25.0" prefWidth="146.0" text="E =&#10;&#10;" />
+                        <Label fx:id="lblEncECalcTime" layoutX="147.0" layoutY="42.0" prefHeight="25.0" prefWidth="209.0" />
+                        <TextField fx:id="txtEncE" layoutX="147.0" layoutY="2.0" onKeyTyped="#validateE" prefHeight="25.0" prefWidth="209.0" />
+                        <Label fx:id="lblEncECalcTime1" layoutY="42.0" prefHeight="25.0" prefWidth="146.0" text="Calculation time =" />
+                            </children>
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                        </Pane>
+                        <SplitPane dividerPositions="0.4" layoutX="10.0" layoutY="10.0" prefHeight="80.0" prefWidth="356.0">
+                            <items>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                    <children>
+                                        <Label alignment="CENTER" layoutX="41.0" layoutY="31.0" text="Message" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="80.0" prefWidth="100.0">
+                                    <children>
+                                        <TextArea fx:id="txtEncMsgToEncrypt" prefHeight="200.0" prefWidth="200.0" promptText="Enter the message that you want to encrypt" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    </children>
+                                </AnchorPane>
+                            </items>
+                        </SplitPane>
+                        <Pane layoutX="10.0" layoutY="210.0" prefHeight="47.0" prefWidth="356.0">
+                            <children>
+                                <Button fx:id="btnEncEncryptMsg" alignment="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onEncEncryptM" prefHeight="40.0" prefWidth="356.0" text="Encrypt message" />
+                            </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                        </Pane>
+                        <SplitPane dividerPositions="0.4" layoutX="10.0" layoutY="330.0" prefHeight="80.0" prefWidth="200.0">
+                            <items>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                    <children>
+                                        <Label alignment="CENTER" layoutX="41.0" layoutY="31.0" text="Encrypted message" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="80.0" prefWidth="100.0">
+                                    <children>
+                                        <TextArea fx:id="txtEncEncryptedMsg" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    </children>
+                                </AnchorPane>
+                            </items>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                        </SplitPane>
+                    </children>
+                </VBox>
+                <VBox prefHeight="200.0" prefWidth="374.0" style="-fx-padding: 10;">
+                    <children>
+                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="355.0" style="-fx-font-weight: 800;" text="Decryption">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                        <SplitPane dividerPositions="0.4" prefHeight="80.0" prefWidth="200.0">
+                            <items>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                    <children>
+                                        <Label alignment="CENTER" layoutX="41.0" layoutY="31.0" text="N" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="80.0" prefWidth="100.0">
+                                    <children>
+                                        <TextArea fx:id="txtDecN" prefHeight="200.0" prefWidth="200.0" promptText="Enter a valid N" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    </children>
+                                </AnchorPane>
+                            </items>
+                        </SplitPane>
+                        <SplitPane dividerPositions="0.4" layoutX="10.0" layoutY="10.0" prefHeight="80.0" prefWidth="200.0">
+                            <items>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                    <children>
+                                        <Label alignment="CENTER" layoutX="41.0" layoutY="31.0" text="E" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="80.0" prefWidth="100.0">
+                                    <children>
+                                        <TextArea fx:id="txtDecE" prefHeight="200.0" prefWidth="200.0" promptText="Enter a valid E" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    </children>
+                                </AnchorPane>
+                            </items>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                        </SplitPane>
+                        <Pane prefHeight="40.0" prefWidth="200.0">
+                            <children>
+                                <Button fx:id="btnDecCalcD" alignment="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onDecCalculateD" prefHeight="40.0" prefWidth="355.0" text="Calculate D" />
+                            </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                        </Pane>
+                        <Pane prefHeight="162.0" prefWidth="356.0">
+                            <children>
+                                <Label fx:id="lblDecCalcD" layoutX="1.0" layoutY="14.0" prefHeight="30.0" prefWidth="146.0" text="D =" />
+                        <TextField fx:id="txtDecD" layoutX="147.0" layoutY="16.0" prefHeight="30.0" prefWidth="209.0" />
+                            </children>
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                        </Pane>
+                        <SplitPane dividerPositions="0.4" layoutX="10.0" layoutY="90.0" prefHeight="80.0" prefWidth="356.0">
+                            <items>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                    <children>
+                                        <Label alignment="CENTER" layoutX="41.0" layoutY="31.0" text="Encrypted message" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="80.0" prefWidth="100.0">
+                                    <children>
+                                        <TextArea fx:id="txtDecEncryptedMsg" prefHeight="200.0" prefWidth="200.0" promptText="Enter the encrypted message that you want to decrypt" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    </children>
+                                </AnchorPane>
+                            </items>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                        </SplitPane>
+                        <Pane layoutX="10.0" layoutY="170.0" prefHeight="40.0" prefWidth="200.0">
+                            <children>
+                                <Button fx:id="btnDecDecryptMsg" alignment="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onDecDecryptMessage" prefHeight="40.0" prefWidth="356.0" text="Decrypt message" />
+                            </children>
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                        </Pane>
+                        <SplitPane dividerPositions="0.4" layoutX="10.0" layoutY="290.0" prefHeight="80.0" prefWidth="200.0">
+                            <items>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                    <children>
+                                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="41.0" layoutY="31.0" text="Decrypted message" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="80.0" prefWidth="100.0">
+                                    <children>
+                                        <TextArea fx:id="txtDecDecryptedMsg" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    </children>
+                                </AnchorPane>
+                            </items>
+                        </SplitPane>
+                    </children></VBox>
+            </items>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+        </SplitPane>
+    </children>
+</VBox>
